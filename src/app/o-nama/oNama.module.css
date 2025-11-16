@@ -1,0 +1,303 @@
+
+.pageWrapper {
+  min-height: 100vh;
+  background-color: #f9f9f7;
+}
+
+.heroSection {
+  height: 50vh;
+  min-height: 400px;
+  background: linear-gradient(135deg, rgba(139, 115, 85, 0.9), rgba(101, 84, 64, 0.95)),
+              url("/slider/caj10.jpeg") center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.heroContent {
+  text-align: center;
+  color: white;
+  padding: 2rem;
+  max-width: 800px;
+}
+
+.heroTitle {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.heroSubtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  opacity: 0.95;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.storySection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 6rem;
+  align-items: center;
+}
+
+.storyImage {
+  width: 100%;
+  height: 500px;
+  background: url("../public/pijenjecaja.svg") center/cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.storyContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.centerTitle {
+  font-size: 3rem;
+  color: #2d3748;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.paragraph {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #4a5568;
+}
+
+.valuesSection {
+  margin-bottom: 6rem;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.valueCard {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  border: 2px solid #e2e8f0;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.valueCard:hover {
+  transform: translateY(-8px);
+  border-color: #cbd5e0;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+.valueIcon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.valueTitle {
+  font-size: 1.5rem;
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.valueText {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #4a5568;
+}
+
+.processSection {
+  margin-bottom: 6rem;
+}
+
+.processSteps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.processStep {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  border: 2px solid #e2e8f0;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.processStep:hover {
+  border-color: #8b7355;
+  box-shadow: 0 8px 24px rgba(139, 115, 85, 0.15);
+}
+
+.stepNumber {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin-bottom: 1rem;
+}
+
+.stepTitle {
+  font-size: 1.5rem;
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.stepText {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #4a5568;
+}
+
+.ctaSection {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #8b7355, #655440);
+  border-radius: 20px;
+  color: white;
+  margin-bottom: 4rem;
+}
+
+.ctaTitle {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.ctaText {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer {
+  background-color: #2d3748;
+  color: white;
+  padding: 3rem 1.5rem 1.5rem;
+}
+
+.footerContent {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.footerSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footerTitle {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.footerText {
+  font-size: 0.95rem;
+  color: #cbd5e0;
+  line-height: 1.6;
+}
+
+.footerCopyright {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #4a5568;
+  color: #a0aec0;
+  font-size: 0.9rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .storySection {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .storyImage {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.2rem;
+  }
+
+  .container {
+    padding: 3rem 1rem;
+  }
+
+  .centerTitle {
+    font-size: 2rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .valuesGrid,
+  .processSteps {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaTitle {
+    font-size: 2rem;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .valueCard,
+  .processStep {
+    padding: 1.5rem;
+  }
+
+  .ctaSection {
+    padding: 2rem 1rem;
+  }
+}
