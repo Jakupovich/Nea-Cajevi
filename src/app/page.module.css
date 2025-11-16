@@ -1,310 +1,504 @@
-/* page.module.css */
+:root{
+  --gap-large: 6vw;
+  --icon-size-desktop: 120px;
+  --icon-size-mobile: 80px;
+  --text-size-desktop: 30px;
+  --text-size-mobile: 18px;
+}
 
-/* root landing area uses public SVG as full-viewport background */
-.landing {
-  position: relative;
+/* global */
+.bgTexture{ width:100%; overflow-x:hidden; }
+
+/* landing */
+.landing{
+  position:relative;
+  width:100%;
+  min-height:100vh;
+  background-image:url("./public/slika.svg");
+  background-size:cover;
+  background-position:right center;
+  background-repeat:no-repeat;
+  display:flex;
+  flex-direction:column;
+}
+
+/* navbar */
+.header{ position:absolute; top:40px; width:100%; padding:0 6vw; display:flex; justify-content:space-between; align-items:center; z-index:50; }
+.left{ display:flex; gap:20px; align-items:center; }
+.navlink{ color:#333; font-size:18px; text-decoration:none; opacity:.9; transition:.15s ease; }
+.navlink:hover{ opacity:1; transform:translateY(-1px); }
+.center{ position:absolute; left:50%; transform:translateX(-50%); }
+.logo{ display:flex; align-items:center; }
+.right{ display:flex; align-items:center; gap:16px; }
+
+/* landing content */
+.contentWrap{ flex:1; display:flex; align-items:center; padding-left:8vw; }
+.textBox{ max-width:600px; display:flex; flex-direction:column; gap:16px; }
+.title{ margin:0; color:#7D806A; line-height:1.05; font-weight:700; font-size:clamp(40px,5.5vw,70px); width: 100vh; }
+.subtitle{ color:#333; line-height:1.6; font-size:20px; width:90%; max-width:520px; }
+.ctaRow{ display:flex; gap:12px; }
+.button{ display:flex; align-items:center; justify-content:center; font-weight:500; box-shadow:0 1px 2px rgba(0,0,0,.05); transition:transform .1s ease-in-out; outline:none; border:none; font-size:20px; background-color:#7D806A; color:#fff; }
+
+/* BENEFITS, WHY US, PRODUCTS, MENU, ORGANIC (unchanged sizes mostly) */
+.benefitsSection{ display:flex; align-items:center; justify-content:center; gap:6vw; padding:120px 8vw; background-color:#f5f5f5; background-image:url("./public/pattern.svg"); background-repeat:repeat; }
+.benefitsImage{ flex:1; max-width:480px; height:480px; background-image:url("./public/zenapijecaj.svg"); background-size:contain; background-repeat:no-repeat; background-position:center left; }
+.benefitsText{ flex:1; max-width:520px; display:flex; flex-direction:column; gap:20px; }
+.benefitsLabel{ font-size:14px; letter-spacing:2px; color:#a27c48; text-transform:uppercase; }
+.benefitsTitle{ font-size:clamp(32px,4vw,44px); color:#6b6b56; }
+.benefitsDesc{ color:#555; font-size:16px; line-height:1.6;white-space: normal !important; }
+
+.whyusContainer{ width:100%;  padding-top: 80px; padding-bottom: 40px; display:flex; flex-direction:column; align-items:center; background-image:url("./public/pattern.svg"); }
+.whyusSince{ font-size:20px; letter-spacing:5px; color:#8e6746; }
+.whyusTitle{ font-size:clamp(36px,4.5vw,52px); color:#8e6746; margin-top:10px; }
+.whyusText{ width:min(70%,900px); text-align:center; font-size:20px; color:#333; margin-top:20px; line-height:1.5; }
+.whyusPhoto{ width:min(80%,1100px); display:flex; justify-content:space-around; margin-top:60px; }
+.photoContainer{ display:flex; flex-direction:column; align-items:center; }
+.photo1,.photo2,.photo3{ width:112px; height:113px; background-size:contain; background-repeat:no-repeat; }
+.photo1{ background-image:url("./public/slika1.svg"); }
+.photo2{ background-image:url("./public/slika2.svg"); }
+.photo3{ background-image:url("./public/slika3.svg"); }
+.whyusPhotoText{ margin-top:30px; font-size:26px; color:#7d806a; }
+
+.productsContainer{ margin-top:12%; width:100%; display:flex; justify-content:center; }
+.productsSubContainer{ width:min(90%,1300px); display:flex; flex-direction:column; }
+.productsTitle{ color:#7d806a; font-size:clamp(34px,4vw,48px); margin-bottom:40px; }
+.productPhotos{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:30px; }
+.productPhoto,.productPhoto2,.productPhoto3{ width:330px; height:460px; background-size:contain; background-repeat:no-repeat; }
+.productPhoto{ background-image:url("./public/kesicacaja1.svg"); }
+.productPhoto2{ background-image:url("./public/kesicacaja2.svg"); }
+.productPhoto3{ background-image:url("./public/kesicacaja3.svg"); }
+.productName{ margin-top:16px; font-size:20px; color:#333; }
+
+.menuSection{ width:100%; padding:120px 8vw; background-color:#f8f8f3; background-image:url("./public/pattern.svg"); background-repeat:repeat; display:flex; flex-direction:column; align-items:center; position:relative; }
+.menuWrapper{ width:100%; max-width:1200px; display:flex; align-items:center; justify-content:space-between; gap:60px; position:relative; padding:40px 0; }
+.menuFlower{ color:#7D806A; position:absolute; left:-15px; bottom:70px; width:200px; height:270px; background-image:url("./public/cvijet.svg"); background-size:contain; background-repeat:no-repeat; background-position:center; pointer-events:none; z-index:1; }
+.menuText{ flex:1; z-index:2; }
+.menuTitle{ font-size:clamp(32px,4vw,46px); color:#7d806a; margin-bottom:30px; }
+.menuList{ display:flex; flex-direction:column; gap:28px; }
+.menuItem{ display:flex; justify-content:space-between; align-items:center; padding-bottom:12px; border-bottom:1px solid #e5e5d6; }
+.menuItem h3{ margin:0; font-size:22px; color:#333; }
+.menuItem p{ margin:4px 0 0; color:#777; font-size:14px; }
+.menuImage{ width:420px; height:280px; background-image:url("./public/meniSlika.svg"); background-size:cover; background-repeat:no-repeat; background-position:center; border-radius:16px; box-shadow:0 8px 20px rgba(0,0,0,.10); flex-shrink:0; }
+.menuQuote{ margin-top:40px; text-align:center; color:#7d806a; font-size:clamp(26px,3vw,34px); line-height:1.45; }
+
+.organicSection{ width:100%; padding:120px 8vw; position:relative; text-align:center; background-image:url("./public/pattern.svg"); background-repeat:repeat; }
+.organicFlower{ position:absolute; right:-105px; bottom:40px; width:300px; height:320px; background-image:url("./public/cvijet2.svg"); background-size:contain; background-repeat:no-repeat; pointer-events:none; z-index:1; }
+.organicQuote{ font-size:clamp(28px,4vw,40px); color:#7d806a; margin-bottom:70px; }
+.organicContent{ width:100%; display:flex; justify-content:center; gap:5vw; margin-bottom:100px; }
+.organicLeft{ display:flex; gap:30px; }
+.organicImg1,.organicImg2{ width:330px; height:450px; background-size:cover; background-repeat:no-repeat; background-position:center; }
+.organicImg1{ background-image:url("./public/caj1.svg"); }
+.organicImg2{ background-image:url("./public/caj2.svg"); }
+.organicRight{ max-width:420px; display:flex; flex-direction:column; gap:40px; text-align:left; }
+.organicTitle{ color:#7d806a; font-size:24px; }
+.organicText{ color:#555; font-size:16px; line-height:1.5; }
+.bestSeller{ letter-spacing:4px; font-size:14px; color:#a27c48; margin-bottom:20px; }
+.organicBottomTitle{ color:#7d806a; font-size:clamp(30px,4vw,44px); line-height:1.3; }
+
+/* ICONS SECTION (REWORKED) */
+.iconsSection{
+  width:100%;
+
+  padding-right:3vw;
+  padding-left:3vw;
+  background-color:#EEF0DC;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:var(--gap-large);
+  box-sizing:border-box;
+}
+
+/* columns: left + right */
+.iconsColumn{
+  display:flex;
+  flex-direction:column;
+  gap:var(--gap-large);
+  width:28%;
+  box-sizing:border-box;
+}
+
+/* align left column start, right column end */
+.iconsSection > .iconsColumn:first-child{ align-items:flex-start; padding-left:2vw; }
+.iconsSection > .iconsColumn:last-child{ align-items:flex-end; padding-right:2vw; }
+
+/* single icon row */
+.iconItem{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+/* small wrapper for background-image icons */
+.iconImg{
+  width:var(--icon-size-desktop);
+  height:var(--icon-size-desktop);
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center;
+  flex-shrink:0;
+}
+
+/* set background only on these */
+.starIcon{ background-image:url('./public/star.svg'); width: 87px; height: 87px; }
+.tagIcon{ background-image:url('./public/tagBox.svg'); width: 87px; height: 87px;  }
+.bagIcon{ background-image:url('./public/bag.svg');  width: 87px; height: 87px; }
+.leafIcon{ background-image:url('./public/leaf.svg');  width: 87px; height: 87px; }
+.presentIcon{ background-image:url('./public/present.svg');  width: 87px; height: 87px; }
+.boxIcon{ background-image:url('./public/box.svg'); width: 87px; height: 87px;  }
+
+/* text next to icon */
+.iconItem p{
+  margin:0;
+  font-size:var(--text-size-desktop);
+  color:#333;
+  line-height:1;
+}
+
+/* center box */
+.centerBox{
+  width:36%;
+  height:640px;
+  background-image:url('./public/sipak.svg');
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center;
+  filter:drop-shadow(0 12px 30px rgba(0,0,0,0.08));
+  display:block;
+  box-sizing:border-box;
+}
+.gallery {
   width: 100%;
-  height: 100vh;
-  background-image: url("./public/slika.svg"); /* <-- javna putanja */
-  background-size: cover;
-  background-position: right center; /* slika ima predmet desno */
-  background-repeat: no-repeat;
-  overflow: hidden;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial;
-}
-.bg-texture {
-  background-image: url('./public/pattern.svg');
-  background-repeat: repeat;
-  background-size: auto;
-  background-color: #f5f5f5;
-}
-
-
-/* header (navbar) je absolute na vrhu */
-.header {
-  position: absolute;
-  top: 50px;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 100px;
-  pointer-events: auto;
-  z-index: 40;
-}
-
-/* lijevi linkovi */
-.left {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.navlink {
-  color: #333333;
-  text-decoration: none;
-  font-size: 20px;
-  opacity: 0.9;
-  transition: opacity .12s, transform .12s;
-}
-.navlink:hover { opacity: 1; transform: translateY(-1px); }
-
-/* centrirani logo */
-.center {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.logo { display:flex; align-items:center;margin-top: 50px; }
-
-/* desni container (kontakt dugme) */
-.right { display:flex; align-items:center; gap:10px; }
-
-/* Glavni sadržaj - poravnanje lijevo, udaljeno od lijevog ruba */
-.contentWrap{
-  position: relative;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  padding-left: 8vw; /* udaljenost od lijevog ruba da bude kao na slici */
-  z-index: 30;
-}
-/* naslov veliki, tamno-zelenkasto/šumska boja */
-.title {
-  margin: 0 0 12px 0;
-  font-size: clamp(34px, 5.5vw, 48px);
-  line-height: 1.02;
-  color: #7D806A; /* tamnija zelena nijansa */
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  font-size: 80;
-}
-
-.subtitle {
-  margin: 0 0 20px 0;
-  color: #333333;
-  font-size:20px;
-  line-height: 30px;
-  font-weight: 200;
-  width: 42%;
-}
-
-/* CTA red (dugmad) */
-.ctaRow {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-.button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 500; /* font-medium */
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* shadow-sm */
-  transition: transform 0.1s ease-in-out; /* transition-transform */
-  outline: none; /* focus:outline-none */
-  border: none;
-  font-size: 20px;
-  background-color: #7D806A;
-  color: #fff;
-}
-.benefitsSection {
-  display: flex;
-  justify-content: center;
-  gap: 80px;
-  padding: 120px 8vw;
-  background-color: #f5f5f5;
-  background-image: url("./public/pattern.svg");
-  background-repeat: repeat;
-  background-size: auto;
-}
-
-.benefitsImage {
-  flex: 1;
-  height: 480px;
-  background-image: url("./public/zenapijecaj.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: left center;
-}
-
-.benefitsText {
-  flex: 1;
+  margin-top: 120px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  margin-top: 3%;
+  text-align: center;
 }
 
-.benefitsLabel {
-  color: #a27c48;
+.gallery h4 {
   font-size: 14px;
   letter-spacing: 2px;
-  text-transform: uppercase;
+  color: #a27c48;
+  margin-bottom: 6px;
 }
 
-.benefitsTitle {
-  font-size: 44px;
-  color: #6b6b56;
-  line-height: 1.2;
+.gallery h2 {
+  font-size: clamp(30px, 3.6vw, 46px);
+  color: #7d806a;
+  margin-bottom: 50px;
 }
 
-.benefitsDesc {
-  color: #555;
-  font-size: 16px;
-  max-width: 520px;
-  line-height: 1.6;
+/* Gornja slika – VELIKA */
+.galleryTop {
+  width: 65%;
+  height: 600px;
+  background-image: url("./public/kamilica.svg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 14px;
+  margin-bottom: 50px;
+  margin-left: 30px;  
 }
 
-.whyusContainer{
+/* Donje dvije */
+.galleryBottom {
+  height: 700px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+  margin-left: -135px;
+}
+
+/* Lijeva – MANJA */
+.smallImg {
+  width: 38%;
+  height: 760px;
+  background-image: url("./public/pijenjecaja.svg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 14px;
+}
+
+/* Desna – VEĆA VERTIKALNA */
+.bigImg {
+  width: 58%;
+  height: 760px;
+  background-image: url("./public/zenaPijeCaj2.svg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 14px;
+  margin-top: -135px;
+}
+.carouselWrapper {
   width: 100%;
-  height: 500px;
-  justify-content: center;
-  align-items: center;
-  background-image: url("./public/pattern.svg");
+  overflow: hidden;
+  background-color: #f8f8f3;
+  padding: 60px 0;
 }
-.whyusSince{
-  color: #8E6746;
-  font-size: 20px;
-  line-height: auto;
-  letter-spacing: 5px;
-  font-weight: 300;
-  margin-bottom: 20px;
+
+.carouselTrack {
+  display: flex;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+  gap: 20px;
 }
-.whyusTitle{
-  color: #8E6746;
-  font-size: 50px;
-  line-height: auto;
-  margin-bottom: 30px;
+
+.carouselItem {
+  width: 280px;
+  height: 260px;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
 }
-.whyusText{
-  color: #333333;
-  font-size: 20px;
-  line-height: 30px;
-  margin-bottom: 30px;
-  letter-spacing: 1px;
-  width: 70%;
+
+/* PRIMJERI SLIKA — ti koristi svoje */
+.carousel1 { background-image: url("./public/slider/caj.svg"); }
+.carousel2 { background-image: url("./public/slider/caj2.svg"); }
+.carousel3 { background-image: url("./public/slider/caj3.svg"); }
+.carousel4 { background-image: url("./public/slider/cajevi.svg"); }
+.carousel5 { background-image: url("./public/slider/kasike.svg"); }
+.carousel6 { background-image: url("./public/slider/kasike2.svg"); }
+.carousel7 { background-image: url("./public/slider/caj1.jpeg"); }
+.carousel8 { background-image: url("./public/slider/ca2.jpeg"); }
+.carousel9 { background-image: url("./public/slider/caj3.jpeg"); }
+.carousel10 { background-image: url("./public/slider/caj5.jpeg"); }
+.carousel11 { background-image: url("./public/slider/caj6.jpeg"); }
+.carousel12 { background-image: url("./public/slider/caj7.jpeg"); }
+.carousel13 { background-image: url("./public/slider/caj8.jpeg"); }
+.carousel14 { background-image: url("./public/slider/caj9.jpeg"); }
+.carousel15 { background-image: url("./public/slider/caj10.jpeg"); }
+.carousel16 { background-image: url("./public/slider/caj11.jpeg"); }
+.carousel17 { background-image: url("./public/slider/caj13.jpeg"); }
+
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.footer {
+  background-color: #DEE2BD;
+  padding: 50px 0 30px 0;
   text-align: center;
-  font-weight: 300;
+  width: 100%;
 }
-.whyusPhoto{
+
+.container {
+  max-width: 1300px;
+  margin: auto;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
-  margin-top: 50px;
+  padding: 0 30px;
+  flex-wrap: wrap;
+  gap: 40px;
+}
 
-}
-.photoContainer{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.photo1{
-  background-image: url("./public/slika1.svg");
-  width: 112px;
-  height: 113px;
-}
-.photo2{
-  background-image: url("./public/slika2.svg");
-  width: 112px;
-  height: 113px;
-}
-.photo3{
-  background-image: url("./public/slika3.svg");
-  width: 112px;
-  height: 113px;
-}
-.whyusPhotoText{
-  margin-top: 40px;
-  font-size: 30px;
-  font-weight: 400;
-  color: #7D806A;
-}
-.productsTitle{
-  color: #7D806A;
+.section {
   text-align: left;
-  font-size: 45px;
-  margin-left: 3.3%;
-  margin-bottom: 30px;
+  min-width: 200px;
 }
-.productsContainer{
-  margin-top: 80px;
+
+.section h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.section p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.center {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin-top: 15%;
-  width: 100%;
+  gap: 30px;
 }
-.productsSubContainer{
-  display: flex;
-  width: 100%;
-  flex-direction: column;
+
+.divider {
+  width: 1px;
+  height: 80px;
+  background-color: #999;
 }
-.productPhotos{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-left: 50px;
-  padding-right: 50px;
+
+
+
+.logo2{
+  background-image: url("/next.svg");
+  width: 30vw;
+  height: 120px;
+  background-size: 120%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-.productPhoto{
-  width: 407px;
-  height: 529px;
-  background-image: url("./public/kesicacaja1.svg");
-}
-.productPhoto2{
-  width: 407px;
-  height: 529px;
-  background-image: url("./public/kesicacaja2.svg");
-}
-.productPhoto3{
-  width: 407px;
-  height: 529px;
-  background-image: url("./public/kesicacaja3.svg");
-}
-.productName{
+
+
+.bottom {
   margin-top: 30px;
+  border-top: 1px solid #b8bba1;
+  padding-top: 20px;
+  font-size: 14px;
+}
+.footerTitle{
   font-size: 20px;
+  font-weight: 600;
   color: #333333;
-
+}
+.footerText{
+  font-weight: 300;
+    font-size: 16px;
+}
+.underLine{
+  text-decoration: underline;
+}
+.logo2{
+  background-image: url("/next.svg");
+  width: 30vw;
+  height: 120px;
+  background-size: 120%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.button:active {
-  transform: scale(0.98); /* active:scale-[0.98] */
+/* Fine tune spacing to visually match screenshot (slightly heavier gap on left) */
+.galleryRow > .imgBig { margin-right: 12px; }
+
+/* -------- RESPONSIVE ADJUSTMENTS -------- */
+@media (max-width: 1200px) {
+  .imgBig { width: 420px; height: 270px; transform: translateY(8px); }
+  .imgTall { width: 360px; height: 270px; }
+  .imgSmall { width: 220px; height: 160px; transform: translateY(60px); }
+  .galleryRow::before { width: 260px; height: 260px; left: 56%; top: -12px; }
+  .galleryRow { gap: 36px; }
 }
 
-.button:focus {
-  box-shadow: 0 0 0 2px rgba(59,130,246,0.5), 0 0 0 4px rgba(255,255,255,0.5); /* focus:ring-2 focus:ring-offset-2 */
-}
-
-/* Ako želiš rounded, ali možeš i preko inline style */
-
-/* prilagođavanje button klasa (Button.tsx daje bazu) */
-.bg-\[\#7B9A6D\] { background-color: #7B9A6D; }
-.text-white { color: white; }
-.border { border: 1px solid rgba(0,0,0,0.06); }
-
-/* responsive */
 @media (max-width: 900px) {
-  .contentWrap { padding-left: 6vw; }
-  .textBox { padding: 28px; max-width: 86%; }
-  .title { font-size: 30px; }
-  .header { padding: 0 18px; top: 16px; }
-  .center { display:none; } /* sakrij centrirani logo na malim ekranima */
+  /* Tablet: left + right side-by-side, small centered under krug between them */
+  .galleryRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "big tall"
+      "small small";
+    gap: 18px 24px;
+    align-items: start;
+  }
+
+  .imgBig { grid-area: big; width: 100%; height: 240px; transform: translateY(0); }
+  .imgTall { grid-area: tall; width: 100%; height: 240px; transform: translateY(0); }
+  .imgSmall { grid-area: small; width: 55%; margin: 0 auto; height: 170px; transform: translateY(-30px); z-index: 4; }
+
+  .galleryRow::before { left: 50%; top: -60px; width: 220px; height: 220px; }
 }
-.test{
-  width: 100%;
-  height: 100px;
+
+@media (max-width: 570px) {
+  /* Mobile: stack vertically; krug above middle image */
+  .galleryRow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .imgBig, .imgTall { width: 92%; height: 220px; border-radius: 12px; transform: none; }
+  .imgSmall { width: 72%; height: 160px; transform: translateY(0); border-radius: 14px; }
+  .galleryRow::before { left: 50%; top: -90px; width: 160px; height: 160px; }
 }
+
+/* SINGLE RESPONSIVE BREAKPOINT (merged) */
+@media (max-width:900px){
+  :root {
+    --gap-large: 5vw;
+  }
+
+  /* landing */
+  .landing { background-position: center; }
+  .contentWrap { padding-left: 4vw; padding-right: 4vw; }
+  .textBox { max-width: 100%; }
+
+  /* benefits */
+  .benefitsSection {
+    flex-direction: column;
+    text-align: center;
+  }
+  .benefitsText { align-items: center; }
+
+  /* why us */
+  .whyusPhoto {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  /* products */
+  .productPhotos {
+    justify-content: center;
+  }
+
+  /* menu */
+  .menuWrapper {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .menuItem {
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+  }
+
+  /* organic */
+  .organicContent {
+    flex-direction: column;
+  }
+  .organicRight { text-align: center; }
+
+  /* icons (tvoje izmjene ostaju) */
+  .iconsSection {
+    flex-direction: column;
+    gap: 48px;
+    padding: 60px 4vw;
+  }
+  .iconsColumn {
+    width: 100%;
+    flex-direction: row;
+    gap: 28px;
+    justify-content: center;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+  .iconItem {
+    flex-direction: column;
+    gap: 8px;
+    width: auto;
+    text-align: center;
+  }
+  .iconImg { width: var(--icon-size-mobile); height: var(--icon-size-mobile); }
+  .iconItem p { font-size: var(--text-size-mobile); }
+
+  .centerBox {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+@media (max-width:1200px) {
+  .benefitsSection,
+  .menuSection,
+  .organicSection {
+    padding: 100px 6vw;
+  }
+
+  .whyusPhoto { gap: 40px; justify-content: center; }
+  .organicContent { gap: 3vw; }
+  .productsSubContainer { width: 95%; }
+  .productPhoto,
+  .productPhoto2,
+  .productPhoto3 {
+    width: 300px;
+    height: auto;
+  }
+
+  .menuWrapper { gap: 40px; }
+  .menuImage { width: 360px; height: auto; }
+}
+

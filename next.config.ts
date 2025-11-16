@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  experimental: {
+    appDir: true,
+  },
+  srcDir: "src",  // 🔥 OVO MORA BITI TU
 };
 
 export default nextConfig;

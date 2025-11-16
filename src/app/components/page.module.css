@@ -1,0 +1,54 @@
+.galleryContainer {
+    width: 100%;
+    max-width: 900px;
+    padding: 30px;
+  }
+  
+  .mainImageWrapper {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+  }
+  
+  .mainImage {
+    transition: transform 0.3s ease;
+  }
+  
+  .mainImageWrapper:hover .mainImage {
+    transform: scale(1.05);
+  }
+  
+  .thumbnailGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  
+  .thumbnailButton {
+    border: 2px solid transparent;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: border 0.3s ease;
+  }
+  
+  .thumbnailButton:hover {
+    border-color: #4f46e5; /* indigo */
+  }
+  
+  .thumbnailImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .thumbnailButton:hover .thumbnailImage {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  
